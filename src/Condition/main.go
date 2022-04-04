@@ -1,6 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func strConcat() func(s string) string {
+	str := ""
+	return func(s string) string {
+		str += s
+		return str
+	}
+}
 
 func main() {
 	var value int
@@ -12,16 +23,24 @@ func main() {
 		fmt.Printf("The number %d is odd\n", value)
 	}
 
-	var value1 int
-	fmt.Scan(&value1)
+	str := strConcat()
+	var strForInput string
+	for i := 0; i < 3; i++ {
+		fmt.Scan(&strForInput)
+		str(strForInput + "\n")
+	}
 
-	switch value1 {
-	case 10:
+	strForInput = str("")
+	arrForCheck := strings.Split(strForInput, "\n")
+	fmt.Println(arrForCheck)
+
+	switch arrForCheck[2] {
+	case "hello":
 		fmt.Println("a")
-	case 20:
+	case "world":
 		fmt.Println("b")
-		// fallthrough выполняет все кейсы включая дефолтный, которые идут ниже не проверяя значения
+		fallthrough // Провалиться в оставшиеся кейсы в низ без проверки
 	default:
-		fmt.Println("c")
+		fmt.Println("Hm...")
 	}
 }

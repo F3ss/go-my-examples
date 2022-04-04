@@ -45,7 +45,11 @@ func main() {
 
 	fmt.Printf("Full name: %s, len of it: %d\n", concat, len(concat))  // len() количество элементов
 	fmt.Println("Amount of chars", name, utf8.RuneCountInString(name)) //Rune - один utf -ый символ
-	// Поиск подстроки
-	fmt.Print(strings.Contains(name, "ktor"))
+	fmt.Print(strings.Contains(name, "ktor"))                          // Поиск подстроки
+
+	// Const
+	const pi float32 = 3.1415
+
+	fmt.Println(pi)
 
 }
