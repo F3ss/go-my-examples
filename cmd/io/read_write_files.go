@@ -46,6 +46,7 @@ func main() {
 
 	_, err2 := f.WriteString("Hello World!\n")
 
+	
 	if err2 != nil {
 		log.Fatalf("Error: %s", err)
 	}
