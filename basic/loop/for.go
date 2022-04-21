@@ -6,13 +6,9 @@ import (
 )
 
 func main() {
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-	}
-
-	for ind, r := range "Hello World!" {
-		fmt.Println(ind, r)
-	}
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i)
+	// }
 
 	var password string
 
