@@ -1,0 +1,63 @@
+GET http://localhost/api/users
+Content-Type: application/json
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 200, "Response status is not 200")
+})
+ %}
+###
+GET http://localhost/api/users/UUID
+Content-Type: application/json
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 200, "Response status is not 200")
+})
+ %}
+###
+
+POST http://localhost/api/users
+Content-Type: application/json
+
+{}
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 201, "Response status is not 201")
+})
+ %}
+
+###
+PUT http://localhost/api/users/UUID
+Content-Type: application/json
+
+{}
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 204, "Response status is not 204")
+})
+ %}
+###
+PATCH http://localhost/api/users/UUID
+Content-Type: application/json
+
+{}
+
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 204, "Response status is not 204")
+})
+ %}
+###
+DELETE http://localhost/api/users/UUID
+Content-Type: application/json
+
+> {%
+client.test("Request executed successfully", function (){
+    client.assert(response.status === 200, "Response status is not 200")
+})
+ %}
+###

@@ -18,7 +18,7 @@ func main() {
 	fmt.Scan(&age, &name)
 
 	// fmt.Fscan(os.Stdin, &age)
-	// fmt.Println("New age:", age)
+	// fmt.Println("NewHandler age:", age)
 
 	fmt.Printf("My name is: %s\nMy age is : %d\n", name, age)
 	i, err := strconv.Atoi("-42")
