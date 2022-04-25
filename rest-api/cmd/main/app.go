@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
 	"log"
 	"net"
 	"net/http"
 	"rest_api/internal/user"
 	"time"
+
+	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
@@ -36,7 +37,5 @@ func start(router *httprouter.Router) error {
 		ReadTimeout:  5 * time.Second,
 	}
 
-	log.Fatalln(server.Serve(listener))
-
-	return nil
+	return server.Serve(listener)
 }
