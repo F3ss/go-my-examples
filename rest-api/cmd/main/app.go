@@ -5,12 +5,14 @@ import (
 	"net"
 	"net/http"
 	"rest_api/internal/user"
+	"rest_api/pkg/logging"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
+	logging.Init()
 	log.Println("Create router")
 	router := httprouter.New()
 
