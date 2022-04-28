@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strings"
 )
 
@@ -15,7 +16,9 @@ func strConcat() func(s string) string {
 
 func main() {
 	var value int
-	fmt.Scan(&value)
+	if _, err := fmt.Scan(&value); err != nil {
+		log.Fatalln(err)
+	}
 
 	if value%2 == 0 {
 		fmt.Printf("The number %d is even\n", value)
@@ -26,7 +29,9 @@ func main() {
 	str := strConcat()
 	var strForInput string
 	for i := 0; i < 3; i++ {
-		fmt.Scan(&strForInput)
+		if _, err := fmt.Scan(&strForInput); err != nil {
+			log.Fatalln(err)
+		}
 		str(strForInput + "\n")
 	}
 
