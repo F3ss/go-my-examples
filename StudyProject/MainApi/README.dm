@@ -11,6 +11,6 @@ Migrate:
     create init dirrectory with files:
         migrate create -ext sql -dir ./schema -seq init
     up:
-        migrate -path ./schema -database 'postgres://user:user@localhost:5432/exampledb?sslmod=disable' up
+        migrate -path ./schema -database 'postgres://user:user@localhost:5432/exampledb?sslmode=disable' up
     down:
         migrate -path ./schema -database 'postgres://user:user@localhost:5432/exampledb?sslmod=disable' down -all
