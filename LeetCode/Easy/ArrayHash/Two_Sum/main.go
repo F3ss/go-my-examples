@@ -5,11 +5,11 @@ import (
 )
 
 func main() {
-	fmt.Println(Two_Sum([]int{1, 7, 11, 2}, 9))
-	fmt.Println(Two_Sum([]int{3, 3}, 6))
+	fmt.Println(TwoSum_ByMap([]int{1, 7, 11, 2}, 9))
+	fmt.Println(TwoSum_ByMap([]int{3, 3}, 6))
 }
 
-func Two_Sum(nums []int, target int) []int {
+func TwoSum_ByMap(nums []int, target int) []int {
 	var num int
 	mapa := make(map[int]int, 100)
 
@@ -29,14 +29,14 @@ func Two_Sum(nums []int, target int) []int {
 	return nil
 }
 
-// func Two_Sum(nums []int, target int) []int {
+func TwoSum_ByTwoLoop(nums []int, target int) []int {
 
-// 	for i := 0; i < len(nums); i++ {
-// 		for y := i + 1; y < len(nums); y++ {
-// 			if nums[y] == target-nums[i] {
-// 				return []int{i, y}
-// 			}
-// 		}
-// 	}
-// 	return nil
-// }
+	for i := 0; i < len(nums); i++ {
+		for y := i + 1; y < len(nums); y++ {
+			if nums[y] == target-nums[i] {
+				return []int{i, y}
+			}
+		}
+	}
+	return nil
+}
