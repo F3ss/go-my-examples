@@ -4,26 +4,37 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+
+	"FrontGate/pkg/mylogger"
 )
 
 const portNumber = ":8080"
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	parseTemplate, err := template.ParseFiles("./home_page.html")
-	if err != nil {
-		log.Fatalf("Error parsing template: %s\n", err.Error())
-	}
+var myLog *mylogger.MyLogger = mylogger.New()
 
-	parseTemplate.Execute(w, nil)
+func home(w http.ResponseWriter, r *http.Request) {
+	if err := renderTemplate(w, "home_page.html"); err != nil {
+		myLog.Info.Printf("Error parsing template: %s\n", err.Error())
+	}
 }
 
-func About(w http.ResponseWriter, r *http.Request) {
-	parseTemplate, err := template.ParseFiles("./about_page.html")
-	if err != nil {
+func about(w http.ResponseWriter, r *http.Request) {
+	if err := renderTemplate(w, "about_page.html"); err != nil {
 		log.Fatalf("Error parsing template: %s\n", err.Error())
 	}
+}
 
-	parseTemplate.Execute(w, nil)
+func renderTemplate(w http.ResponseWriter, templateName string) error {
+	parseTemplate, err := template.ParseFiles("./templates/" + templateName)
+	if err != nil {
+		return err
+	}
+
+	if err := parseTemplate.Execute(w, nil); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func main() {
