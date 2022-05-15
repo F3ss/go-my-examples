@@ -25,9 +25,9 @@ func New() *MyLogger {
 				log.Fatalf("Error initialize myLogger, error: %s\n", err.Error())
 			}
 			myLog := &MyLogger{
-				Info:     log.New(file, "INFO", log.Ldate|log.Ltime|log.Lshortfile),
-				Warrning: log.New(file, "WARNING", log.Ldate|log.Ltime|log.Lshortfile),
-				Error:    log.New(file, "ERROR", log.Ldate|log.Ltime|log.Lshortfile),
+				Info:     log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile),
+				Warrning: log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile),
+				Error:    log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile),
 			}
 			myLog.Info.Printf("myLogger initialized")
 		})
